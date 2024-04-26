@@ -1,0 +1,24 @@
+// classroom.proto
+syntax = "proto3";
+
+package classroom;
+
+message Classroom {
+    string name = 1;
+    string instructor = 2;
+}
+
+message StartClassRequest {
+    Classroom classroom = 1;
+}
+
+message StopClassRequest {
+    Classroom classroom = 1;
+}
+
+message Empty {}
+
+service ClassroomService {
+    rpc StartClass(StartClassRequest) returns (Empty);
+    rpc StopClass(StopClassRequest) returns (Empty);
+}
