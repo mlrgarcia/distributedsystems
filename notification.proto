@@ -1,0 +1,17 @@
+// notification.proto
+syntax = "proto3";
+
+package classroom;
+
+message Notification {
+    string message = 1;
+    int64 timestamp = 2;
+}
+
+message SendNotificationRequest {
+    Notification notification = 1;
+}
+
+service NotificationService {
+    rpc SendNotification(SendNotificationRequest) returns (Empty);
+}
