@@ -1,0 +1,48 @@
+// student.proto
+syntax = "proto3";
+
+package classroom;
+
+message Student {
+    string id = 1;
+    string name = 2;
+    int32 age = 3;
+}
+
+message StudentId {
+    string id = 1;
+}
+
+message RegisterStudentRequest {
+    Student student = 1;
+}
+
+message GetStudentResponse {
+    Student student = 1;
+}
+
+message GradeAssignmentRequest {
+    StudentId studentId = 1;
+    string assignmentName = 2;
+    int32 grade = 3;
+}
+
+message AssignmentGrade {
+    string assignmentName = 1;
+    int32 grade = 2;
+}
+
+message GetAssignmentGradesRequest {
+    StudentId studentId = 1;
+}
+
+message GetAssignmentGradesResponse {
+    repeated AssignmentGrade assignmentGrades = 1;
+}
+
+service StudentService {
+    rpc RegisterStudent(RegisterStudentRequest) returns (GetStudentResponse);
+    rpc GetStudent(StudentId) returns (GetStudentResponse);
+    rpc GradeAssignment(GradeAssignmentRequest) returns (GetAssignmentResponse);
+    rpc GetAssignmentGrades(GetAssignmentGradesRequest) returns (GetAssignmentGradesResponse);
+}
