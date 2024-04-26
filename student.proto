@@ -43,6 +43,6 @@ message GetAssignmentGradesResponse {
 service StudentService {
     rpc RegisterStudent(RegisterStudentRequest) returns (GetStudentResponse);
     rpc GetStudent(StudentId) returns (GetStudentResponse);
-    rpc GradeAssignment(GradeAssignmentRequest) returns (GetAssignmentResponse);
+    rpc GradeAssignment(GradeAssignmentRequest) returns (Empty);
     rpc GetAssignmentGrades(GetAssignmentGradesRequest) returns (GetAssignmentGradesResponse);
 }
